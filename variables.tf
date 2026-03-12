@@ -29,5 +29,3 @@ variable "niker_public_route_table_name" {}
 # Security Groups
 variable "security_group_name" {}
 
-# Tester internet gateway
-variable "tester_internet_gateway_name" {}
