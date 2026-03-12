@@ -9,6 +9,7 @@ terraform {
     bucket = "niker-bucket-001"
     key    = "niker.tfstate"
     region = "us-east-1"
+    use_lockfile = true
   }
 }
 
@@ -31,7 +32,7 @@ module "internet_gateway" {
   vpc_id                = module.vpc.vpc_id
   internet_gateway_name = var.internet_gateway_name
 
-  
+
 }
 
 # Subnets
@@ -75,4 +76,24 @@ module "security_groups" {
   source              = "./modules/security_groups"
   vpc_id              = module.vpc.vpc_id
   security_group_name = var.security_group_name
+}
+
+# EC2
+module "ec2" {
+  source             = "./modules/ec2"
+  public_subnet_1_id = module.subnets.public_subnet_1_id
+  security_group_id  = module.security_groups.security_group_id
+  ami_id             = var.ami_id
+  instance_type      = var.instance_type
+  key_name           = var.key_name
+  ec2_region         = var.ec2_region
+  ec2_name           = var.ec2_name
+}
+
+# DynamoDB
+module "dynamodb" {
+  source             = "./modules/dynamodb"
+  dynamodb_table_name = var.dynamodb_table_name
+  billing_mode = var.billing_mode
+  hash_key     = var.hash_key
 }

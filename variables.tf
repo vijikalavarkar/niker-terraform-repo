@@ -29,3 +29,14 @@ variable "niker_public_route_table_name" {}
 # Security Groups
 variable "security_group_name" {}
 
+# EC2
+variable "ami_id" {}
+variable "instance_type" {}
+variable "key_name" {}
+variable "ec2_region" {}
+variable "ec2_name" {}
+
+# DynamoDB
+variable "dynamodb_table_name" {}
+variable "billing_mode" {}
+variable "hash_key" {}
