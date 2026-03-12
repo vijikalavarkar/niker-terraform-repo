@@ -1,0 +1,5 @@
+ami_id        = "ami-0030e4319cbf4dbf2"
+instance_type = "t3.small"
+ec2_region    = "us-east-1"
+key_name      = "KKey"
+instance_name = "niker-server"
