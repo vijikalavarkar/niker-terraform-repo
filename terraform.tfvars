@@ -27,3 +27,7 @@ niker_public_route_table_name       = "niker_public_route_table"
 
 # Security Groups
 security_group_name = "niker_security_group"
+
+
+# Tester internet gateway
+tester_internet_gateway_name = "tester_internet_gateway"
